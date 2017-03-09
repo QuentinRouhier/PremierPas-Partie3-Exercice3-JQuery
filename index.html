@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>exercice 3 jquerry part 3</title>
+</head>
+<body>
+  <label for="userchoice"></label><input type="text" name="userchoice" id="userchoice">
+  <button type="button" name="button" id="button" >validez</button>
+  <h1>entrez un nombre entre 0 et 100</h1>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous">
+  </script>
+  <script>
+  $(function(){
+    //Declaration de la variable TryNB
+    var tryNb= 0;
+    // Declaration de la variable finNb avec un chiffre aleatoire
+    var findNb = Math.floor(Math.random() * 101);
+    // Quand on clic sur le bouton la fonction s'enclenche
+    $('#button').click(function() {
+      tryNb++;
+      // Si ce CON d'utilisateur met pas un chiffre il affiche fuck les trollssssssss
+      if($.isNumeric($('#userchoice').val()) == false){
+        // On affiche dans h1 fuck les trollssssssss
+        $('h1').text('Fuck les trollssssssss');
+        // Sinon si utilisateur mets un chiffre qui est le meme a celui qui est random
+      }else if ($('#userchoice').val() == findNb) {
+        //Alor ca affiche dans le h1 le text ci dessous
+        $('h1').text('correct en ' + tryNb + ' tentative(s)');
+        // Sinon si l'utilisateur a une valeur supperiore au chiffre aleatoire
+      }else if ($('#userchoice').val() > findNb) {
+        // Alors on lui affiche moins
+        $('h1').text('moins');
+        // Sinon
+      }else {
+        // Ca affiche plus
+        $('h1').text('plus');
+      }
+    });
+  });
+  </script>
+  </html>
